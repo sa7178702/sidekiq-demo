@@ -12,7 +12,9 @@
               <th scope="col">Email</th>
               <th scope="col">Password</th>
               <th scope="col">Address</th>
-              <th scope="col"><%= link_to "Add student", new_student_path , class: "btn btn-primary"%></th>
+              <th scope="col"><%= link_to "Add student", new_student_path , class: "btn btn-primary"%>
+              <%=link_to "Export CSV", students_path(format: 'csv'), class: "btn btn-warning"%>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -29,6 +31,12 @@
         <% end %>
           </tbody>
       </table>
+      <div class="digg_pagination">
+        <div class="page_info">
+          <%= page_entries_info @student %>
+        </div>
+        <%= will_paginate @student, :container => false %>
+      </div>
     </div>
   </div>
 </div>

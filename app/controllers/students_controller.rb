@@ -1,8 +1,16 @@
 class StudentsController < ApplicationController
-   before_action :find_student, only:[:show, :edit, :update, :destroy]
+  require 'csv'
+  before_action :find_student, only:[:show, :edit, :update, :destroy]
 
   def index
     @student = Student.all
+    @student = @student.paginate(page: params[:page], per_page: 7)
+    respond_to do |format|
+      # binding.pry
+      format.html # index.html.erb
+      # @student = Student.order(:name).page params[:page]
+      format.csv { send_data Student.to_csv, filename: "student #{Date.today}.csv" }
+    end
   end
 
  def new

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  require 'csv'
   get 'students/index'
   root 'students#index'
 
