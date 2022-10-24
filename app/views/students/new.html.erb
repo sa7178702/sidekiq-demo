@@ -1,0 +1,20 @@
+<h3 style = "text-align: center;">Student Form</h3>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4">
+			<%= form_with model: @student do |form|%>
+				<%= form.label :name %><br>
+				<%= form.text_field :name, class: "form-control"%>
+				<%= form.label :email %>
+				<%= form.text_field :email, class: "form-control" %>
+				<%= form.label :password%>
+				<%= form.text_field :password, class: "form-control"%>
+				<%= form.label :address%>
+				<%= form.text_field :address, class: "form-control"%><br>
+				<%= form.submit "submit"%>
+			<% end %>			
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
+</div>
