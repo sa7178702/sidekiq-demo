@@ -28,7 +28,7 @@ class StudentsController < ApplicationController
 
   def update
     # @student = Student.find_by(id: params[:id])
-    if @student.update(find_student)
+    if @student.update(student_params)
      redirect_to root_path
     else
      render :edit
